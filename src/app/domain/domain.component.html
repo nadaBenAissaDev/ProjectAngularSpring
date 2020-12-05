@@ -1,0 +1,39 @@
+<!--Banner section start-->
+<div class="cy_bread_wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <h1>Domain</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+  <input id="email" type="text" class="form-control" placeholder="Search" [(ngModel)]="search">
+</div>
+<div class="cy_blog_wrapper cy_section_padding  cy_blog_page">
+  <div class="container">
+    <div class="row">
+          <app-sous-domain class="col-lg-4 col-md-12" *ngFor="let domain of listDomain" [domainfils]="domain" [searchfils]="search" (notificationParent)="like($event)">
+           </app-sous-domain>
+    </div>
+    <div class="row">
+      <div class="cy_pagination padder_top40">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li><a href="#" class="page_pre"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#" class="active">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#" class="page_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
