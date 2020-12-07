@@ -1,16 +1,15 @@
-<div class="cy_blog_box wow fadeInUp">
+<div class="cy_blog_box wow fadeInUp" *ngIf="domainfils.title.toLocaleLowerCase().includes(searchfils.toLocaleLowerCase())">
   <div class="cy_blog_img">
               <img src="../../assets/Template/images/programmation/{{domainfils.image}}" alt="blog" class="img-fluid" />
               <div class="cy_blog_overlay"></div>
               <div class="cy_blog_links">
                 <ul>
-                 <li><a (click)="sendlike(domainfils.id)"><i class="fa fa-heart" aria-hidden="true"></i> {{domainfils.like}}</a></li>
+                 <li><a (click)="sendlike()"><i class="fa fa-heart" aria-hidden="true"></i> {{domainfils.like}}</a></li>
                 </ul>
               </div>
             </div>
       <div class="cy_blog_data">
           <h2><a [routerLink]="['detail',domainfils.id]">{{domainfils.title}}</a></h2>
-          <p>{{domainfils.description}}</p>
           <a [routerLink]="['test',domainfils.id]" class="cy_button">Passer au test</a>
       </div>
 </div>

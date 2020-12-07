@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
-import {Domain} from '../../model/Domain';
-import {Test} from '../../model/Test';
-import {Comment} from '../../model/Comment';
+import {Domain} from '../model/Domain';
+import {Test} from '../model/Test';
+import {Comment} from '../model/Comment';
 
 @Injectable({
   providedIn: 'root'

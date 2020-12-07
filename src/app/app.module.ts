@@ -14,7 +14,8 @@ import { TestComponent } from './test/test.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DomainDetailComponent } from './domain-detail/domain-detail.component';
 import { SousDomainComponent } from './sous-domain/sous-domain.component';
-import { JwPaginationModule } from 'jw-angular-pagination';
+import { FilterPipe } from './filter.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { JwPaginationModule } from 'jw-angular-pagination';
     TestComponent,
     NotFoundComponent,
     DomainDetailComponent,
-    SousDomainComponent
+    SousDomainComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,7 @@ import { JwPaginationModule } from 'jw-angular-pagination';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    NgxPaginationModule
   ],
   bootstrap: [AppComponent]
 })

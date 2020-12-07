@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {DomainService} from './domain.service';
-import {Domain} from '../../model/Domain';
+import {Domain} from '../model/Domain';
 import {Observable} from 'rxjs';
 
 @Injectable({

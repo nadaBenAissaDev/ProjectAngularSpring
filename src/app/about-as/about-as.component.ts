@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Domain} from '../../model/Domain';
+import {Domain} from '../model/Domain';
 import {DomainService} from '../shared/domain.service';
 
 @Component({

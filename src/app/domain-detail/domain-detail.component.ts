@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CommentService} from '../shared/comment.service';
-import {Comment} from '../../model/Comment';
+import {Comment} from '../model/Comment';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Domain} from '../../model/Domain';
+import {Domain} from '../model/Domain';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 import {SousDomainComponent} from '../sous-domain/sous-domain.component';

@@ -1,8 +1,8 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {DomainService} from '../shared/domain.service';
-import {Domain} from '../../model/Domain';
+import {Domain} from '../model/Domain';
 import {ActivatedRoute} from '@angular/router';
-import {Comment} from '../../model/Comment';
+import {Comment} from '../model/Comment';
 
 @Component({
   selector: 'app-domain',
@@ -26,8 +26,8 @@ export class DomainComponent implements OnInit {
   like(idDom) {
     this.domainService.updateDomainLike(idDom).subscribe(
       () => {
-        console.log('comment updated!' + idDom);
-        this.listDomain = this.listDomain.filter(dom => dom.id !== idDom);
+        console.log('like is updated!');
+       // this.listDomain = this.listDomain.filter(dom => dom.id !== idDom);
       }
     );
   }

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Injectable, Input, OnInit, Output} from '@angular/core';
-import {Domain} from '../../model/Domain';
+import {Domain} from '../model/Domain';
 
 @Component({
   selector: 'app-sous-domain',
@@ -7,15 +7,16 @@ import {Domain} from '../../model/Domain';
   styleUrls: ['./sous-domain.component.css']
 })
 export class SousDomainComponent implements OnInit {
-@Input() domainfils: Domain;
+ @Input() domainfils: Domain;
+ // @Input() listDomainfils: Domain[]
 @Input() searchfils: string;
 @Output() notificationParent = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit(): void {
   }
-  sendlike(idDom){
-  this.notificationParent.emit(idDom);
+  sendlike(){
+  this.notificationParent.emit(this.domainfils.id);
   }
 
 }
