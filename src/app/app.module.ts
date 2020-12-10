@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
 import { DomainComponent } from './domain/domain.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
@@ -16,12 +15,15 @@ import { DomainDetailComponent } from './domain-detail/domain-detail.component';
 import { SousDomainComponent } from './sous-domain/sous-domain.component';
 import { FilterPipe } from './filter.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { CommentComponent } from './comment/comment.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { SubscribeComponent } from './subscribe/subscribe.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
     DomainComponent,
     AboutAsComponent,
     ContactUsComponent,
@@ -29,7 +31,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NotFoundComponent,
     DomainDetailComponent,
     SousDomainComponent,
-    FilterPipe
+    FilterPipe,
+    CommentComponent,
+    SubscribeComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
   ],
   bootstrap: [AppComponent]
 })

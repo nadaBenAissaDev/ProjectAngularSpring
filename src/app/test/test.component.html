@@ -13,24 +13,29 @@
     <div class="row">
      <form #f="ngForm">
        <h3>Choisir la ou les bonnes réponses</h3>
+       <span>Time Elapsed :</span>
+       <div class="progress">
+         <div class="determinate" [style.widt.%]="(qnProgress + 1) *10"></div>
+       </div>
        <div *ngFor="let l of listTest | async ; let i=index ">
          <div class="form-group">
-          <label>Question {{i+1}}: {{l.content}}</label>
+           <!--[ngStyle]="{'color': color}"-->
+          <div>Question {{i+1}}: {{l.content}}</div>
            <div class="form-check">
-             <div *ngFor="let p of l.propositions "  >
-             <input class="form-check-input" type="checkbox" id="gridCheck">
-             <label class="form-check-label" for="gridCheck">
+             <div *ngFor="let p of l.propositions ">
+             <input class="form-check-input" type="checkbox" (click)="propositionChecked(l.content, l.answer,p.prop)" [disabled]="show">
+             <label class="form-check-label">
                {{p.prop}}
              </label>
-             </div>
-             <div class="alert alert-warning">
-              Donnez votre choix
              </div>
            </div>
          </div>
          <div class="alert alert-success" *ngIf="show">
            {{l.answer}}
          </div>
+       </div>
+       <div *ngIf="show">
+         {{valeur}}
        </div>
        <input value="Valider" type="submit" class="btn btn-outline-warning" (click)="valider()">
      </form>

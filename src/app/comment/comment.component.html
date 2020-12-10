@@ -1,0 +1,69 @@
+<!--comments area start-->
+<div class="comments-area">
+  <div class="comments-area-title">
+    <h3 class="comments-title"> Comments</h3>
+  </div>
+  <ol class="commentlist" *ngFor="let comment of listComment">
+    <li class="comment">
+      <div class="cy_comments">
+        <div class="comment_img">
+          <img src="../../assets/Template/images/blog/author.png" alt="comment author" />
+        </div>
+        <div class="comment_data">
+          <div class="comment_data_info">
+            <h3><a href="#">lena adms</a></h3>
+            <a  (click)="deleteComment(comment.id)" class="fa fa-trash"></a > |
+            <a (click)="updateComment(comment)" class="fa fa-edit"></a>
+          </div>
+          <p class="comment_para">
+            {{comment.content}}
+          </p>
+          <div *ngIf="idCom == comment.id"  [hidden]="show" >
+            <!--<input  name="updateComt" class="form-control" value="{{comment.content}}" [(ngModel)]="comment.content" #com="ngModel" required minlength="5">
+            <input type="submit" (click)="saveUpdate(comment.id)" value="Save" [hidden]="">
+            <div class="alert alert-danger" *ngIf="com.invalid && com.touched" >
+              <div *ngIf="com.errors.required">Comment is Required</div>
+              <div *ngIf="com.errors.minlength">Comment minLength is 5</div>
+            </div>-->
+            <form [formGroup]="commentupdateForm">
+              <div>
+                <div class="form-group" [class.has-danger]="contentupdate.invalid && contentupdate.touched" [class.has-success]="contentupdate.valid">
+                  <input type="text" class="form-control" formControlName="contentupdate" value="{{contentupdate}}"   required>
+                  <div *ngIf="content.errors && content.touched">
+                    <span *ngIf="contentupdate.errors.required" class="text-danger">Comment Required</span>
+                    <span *ngIf="contentupdate.errors.minlength" class="text-danger"> Comment must be at least 5 characters long</span></div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="comment-form-submit">
+                    <input type="submit" name="save" class="btn btn-sm btn-outline-danger" value="Save" [disabled]="commentupdateForm.invalid"
+                           (click)="saveUpdate(comment.id)">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+<!--comments area end-->
+<div class="comment-respond">
+  <h3 id="reply-title" class="comment-reply-title">leave a comment</h3>
+  <form [formGroup]="commentForm">
+    <div>
+      <div class="form-group" [class.has-danger]="content.invalid && content.touched" [class.has-success]="content.valid">
+        <textarea type="text" class="form-control" formControlName="content" rows="4" placeholder="Leave a comment"></textarea>
+        <div *ngIf="content.errors && content.touched">
+          <span *ngIf="content.errors.required" class="text-danger">Comment Required</span>
+          <span *ngIf="content.errors.minlength" class="text-danger"> Comment must be at least 5 characters long</span></div>
+      </div>
+      <div class="col-lg-12 col-md-12">
+        <div class="comment-form-submit">
+          <input name="submit" type="submit" id="comment-submit" class="submit cy_button" value="Submit" [disabled]="commentForm.invalid"
+                 (click)="createComment()">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

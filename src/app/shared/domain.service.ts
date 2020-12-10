@@ -24,6 +24,12 @@ export class DomainService {
         catchError(this.errorHandler)
       );
   }
+  getAllDomainbyType(type): Observable<Domain[]> {
+    return this.http.get<Domain[]>(this.baseurl + '/ListDomain/' + type, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
   updateDomainLike(id): Observable<Domain> {
     return this.http.put<Domain>(this.baseurl + '/updateDom/' + id, this.httpOptions)
       .pipe(

@@ -3,19 +3,22 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        <h1>Domain</h1>
+        <h1>Domain {{parameter}}</h1>
       </div>
     </div>
   </div>
 </div>
 <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-search"></i></span>
-  <input type="text" class="form-control" placeholder="Search" [(ngModel)]="search">
+  <input type="text" class="form-control" placeholder="Search" [(ngModel)]="search" #s="ngModel" pattern="[a-zA-Z]+$">
+  <div class="alert alert-danger" *ngIf="s.invalid">
+    <div *ngIf="s.errors.pattern">All are characters</div>
+  </div>
 </div>
 <div class="cy_blog_wrapper cy_section_padding  cy_blog_page">
   <div class="container">
     <div class="row">
-          <app-sous-domain class="col-lg-4 col-md-12" *ngFor="let domain of listDomain " [domainfils]="domain" [searchfils]="search" (notificationParent)="like($event)">
+      <app-sous-domain class="col-lg-4 col-md-12" *ngFor="let domain of listDomain " [domainfils]="domain" [searchfils]="search" (notificationParent)="like($event)">
            </app-sous-domain>
     </div>
     <div class="row">

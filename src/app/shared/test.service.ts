@@ -11,8 +11,13 @@ import {Comment} from '../model/Comment';
 })
 export class TestService {
  private baseUrl = 'http://localhost:8081/MyApplication/api/v1';
-
+ timer;
+ qnProgress: number;
+ seconds: number;
   constructor(private http: HttpClient) {
+  }
+  displayTimeElapsed(){
+    return Math.floor(this.seconds / 3600) + ':' + Math.floor(this.seconds / 60) + ':' + Math.floor(this.seconds % 60);
   }
   getTestbyDom(idDom): Observable<Test[]> {
     return this.http.get<Test[]>(this.baseUrl + '/TestbyDom/' + idDom)

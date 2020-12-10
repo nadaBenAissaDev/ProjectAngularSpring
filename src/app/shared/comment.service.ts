@@ -34,22 +34,12 @@ export class CommentService {
         catchError(this.errorHandler)
       );
   }
-  updateComment(id, comment): Observable<Comment> {
-    return this.http.put<Comment>(this.baseUrl + '/' + id, JSON.stringify(comment), this.httpOptions)
+  updateComment(comment, id): Observable<Comment> {
+    return this.http.put<Comment>(this.baseUrl + '/updateComment/' + id, JSON.stringify(comment), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
   }
-
- /* getById(id): Observable<Product> {
-    return this.httpClient.get<Product>(this.apiServer + '/products/' + id)
-      .pipe(
-        catchError(this.errorHandler)
-      )
-  }
-
-
-*/
   errorHandler(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

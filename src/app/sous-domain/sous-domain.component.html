@@ -1,4 +1,4 @@
-<div class="cy_blog_box wow fadeInUp" *ngIf="domainfils.title.toLocaleLowerCase().includes(searchfils.toLocaleLowerCase())">
+<div class="cy_blog_box wow fadeInUp" *ngIf="domainfils.title.toLocaleLowerCase().includes(searchfils.toLocaleLowerCase()) || searchfils ==='' ">
   <div class="cy_blog_img">
               <img src="../../assets/Template/images/programmation/{{domainfils.image}}" alt="blog" class="img-fluid" />
               <div class="cy_blog_overlay"></div>

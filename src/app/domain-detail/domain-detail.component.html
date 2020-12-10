@@ -14,26 +14,16 @@
       <div class="col-lg-8 col-md-12">
         <div class="cy_blog_box" *ngFor="let dom of listDomain | async">
           <div *ngIf="dom.id == idDom">
-            <div class="cy_blog_img">
-              <img src="../../assets/Template/images/programmation/{{dom.image}}" class="img-fluid" />
-              <div class="cy_blog_overlay"></div>
-              <div class="cy_blog_links">
-                <ul>
-                  <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> {{dom.like}}</a></li>
-                </ul>
-              </div>
-            </div>
             <div class="cy_blog_data">
-              <ul class="cy_blog_info">
-                <li><a href="#">{{dom.type}}</a></li>
-              </ul>
-              <h2><a href="#">{{dom.title}}</a></h2>
+              <h1>{{dom.title}}</h1>
+              <h2>{{dom.type}}</h2>
               <div class="cy_blockquotes">
                 <blockquote cite="">
                 {{dom.description}}
                 </blockquote>
               </div>
             </div>
+            <a [routerLink]="['subscribe', idDom]">Vous voulez s'inscrire?</a>
           </div>
 
         </div>
@@ -43,54 +33,7 @@
                    [routerLink]="['test', idDom]">
           </div>
         </div>
-        <!--comments area start-->
-          <div class="comments-area">
-            <div class="comments-area-title">
-              <h3 class="comments-title"> Comments</h3>
-            </div>
-            <ol class="commentlist" *ngFor="let comment of listComment">
-              <li class="comment">
-                <div class="cy_comments">
-                  <div class="comment_img">
-                    <img src="../../assets/Template/images/blog/author.png" alt="comment author" />
-                  </div>
-                  <div class="comment_data">
-                    <div class="comment_data_info">
-                      <h3><a href="#">lena adms</a></h3>
-                     <a  (click)="deleteComment(comment.id)" class="fa fa-trash"></a > |
-                      <a (click)="updateComment(comment.id)" class="fa fa-edit"></a>
-                    </div>
-                    <p class="comment_para">
-                      {{comment.content}}
-                    </p>
-                    <input name="updateComt" class="form-control" [hidden]="show" value="{{comment.content}}">
-                  </div>
-                </div>
-              </li>
-            </ol>
-        </div>
-        <!--comments area end-->
-        <div class="comment-respond">
-          <h3 id="reply-title" class="comment-reply-title">leave a comment</h3>
-          <form [formGroup]="commentForm">
-            <div>
-              <div class="form-group">
-                <label>Email</label>
-                <textarea type="email" class="form-control" formControlName="content" rows="4" placeholder="Leave a comment"></textarea>
-                <div class="alert alert-danger" *ngIf="getContent().errors && getContent().touched">
-                  <div *ngIf="getContent().errors.required">Comment Required</div>
-                  <div *ngIf="getContent().errors.minlength"> Name must be at least 10 characters long</div></div>
-              </div>
-              <div class="col-lg-12 col-md-12">
-                <div class="comment-form-submit">
-                 <input name="submit" type="submit" id="comment-submit" class="submit cy_button" value="Submit"
-                         (click)="createComment()">
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-
+        <app-comment></app-comment>
       </div>
       <!--Sidebar Start-->
       <div class="col-lg-4 col-md-12">
@@ -99,8 +42,8 @@
           <div class="widget widget_categories">
             <h3 class="widget-title">Categories</h3>
             <ul>
-              <li><a href="#"> Cycling</a></li>
-              <li><a href="#"> Biking</a></li>
+              <li><a [routerLink]="['/domain','framework']"> Framework</a></li>
+              <li><a [routerLink]="['/domain','programmation']"> Programmation</a></li>
             </ul>
           </div>
           <!--Sociallinks-->
