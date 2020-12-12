@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Injectable, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Domain} from '../model/Domain';
 
 @Component({
@@ -7,10 +7,9 @@ import {Domain} from '../model/Domain';
   styleUrls: ['./sous-domain.component.css']
 })
 export class SousDomainComponent implements OnInit {
- @Input() domainfils: Domain;
- // @Input() listDomainfils: Domain[]
-@Input() searchfils: string;
-@Output() notificationParent = new EventEmitter<number>();
+  @Input() domainfils: Domain;
+  @Input() searchfils: string;
+  @Output() notificationParent = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit(): void {

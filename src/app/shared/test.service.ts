@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {Domain} from '../model/Domain';
 import {catchError} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
@@ -11,16 +11,21 @@ import {Comment} from '../model/Comment';
 })
 export class TestService {
  private baseUrl = 'http://localhost:8081/MyApplication/api/v1';
- timer;
- qnProgress: number;
- seconds: number;
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
   constructor(private http: HttpClient) {
   }
-  displayTimeElapsed(){
-    return Math.floor(this.seconds / 3600) + ':' + Math.floor(this.seconds / 60) + ':' + Math.floor(this.seconds % 60);
-  }
   getTestbyDom(idDom): Observable<Test[]> {
-    return this.http.get<Test[]>(this.baseUrl + '/TestbyDom/' + idDom)
+    return this.http.get<Test[]>(this.baseUrl + '/TestbyDom/' + idDom, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+  getquestionTest(idDom) {
+    return this.http.get(this.baseUrl + '/nbrtestByDom/' + idDom, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
@@ -28,10 +33,8 @@ export class TestService {
   errorHandler(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
-      // Get client-side error
       errorMessage = error.error.message;
     } else {
-      // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     console.log(errorMessage);

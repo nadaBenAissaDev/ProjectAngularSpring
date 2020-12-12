@@ -1,40 +1,26 @@
+<!--nada_ben_aissa_ESPRIT-->
 <!--Banner section start-->
 <div class="cy_bread_wrapper">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        <h1>Domain {{parameter}}</h1>
+        <h1>Formations <br>{{parameter}}</h1>
       </div>
     </div>
   </div>
 </div>
-<div class="input-group">
+<div class="input-group" [class.has-danger]="s.invalid" >
   <span class="input-group-addon"><i class="fa fa-search"></i></span>
-  <input type="text" class="form-control" placeholder="Search" [(ngModel)]="search" #s="ngModel" pattern="[a-zA-Z]+$">
-  <div class="alert alert-danger" *ngIf="s.invalid">
-    <div *ngIf="s.errors.pattern">All are characters</div>
-  </div>
+  <input type="text" class="form-control" placeholder="Search" [(ngModel)]="search" #s="ngModel" pattern="[a-zA-Z0-9\s]+$" (keypress)="recherche(search)">
+</div>
+<div *ngIf="s.invalid">
+  <span class="text-danger" *ngIf="s.errors.pattern">Des lettres et des chiffres</span>
 </div>
 <div class="cy_blog_wrapper cy_section_padding  cy_blog_page">
   <div class="container">
     <div class="row">
       <app-sous-domain class="col-lg-4 col-md-12" *ngFor="let domain of listDomain " [domainfils]="domain" [searchfils]="search" (notificationParent)="like($event)">
            </app-sous-domain>
-    </div>
-    <div class="row">
-      <div class="cy_pagination padder_top40">
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li><a href="#" class="page_pre"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#" class="active">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#" class="page_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-          </ul>
-        </nav>
-      </div>
     </div>
   </div>
 </div>

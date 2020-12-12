@@ -1,8 +1,9 @@
+<!--nada_ben_aissa_ESPRIT-->
 <div class="cy_bread_wrapper">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        <h1>Domain</h1>
+        <h1>Détails <br>formation</h1>
       </div>
     </div>
   </div>
@@ -20,17 +21,16 @@
               <div class="cy_blockquotes">
                 <blockquote cite="">
                 {{dom.description}}
+                  <br>
+                  <div><strong>Durée de:&nbsp; {{dom.dateStart}}&nbsp; à &nbsp;{{dom.dateEnd}}</strong></div>
+                  <div><strong>Prix:&nbsp;{{dom.price}} dt </strong></div>
+                  <hr>
+                  <a [routerLink]="['subscribe', idDom]">Vous voulez s'inscrire?</a>
+                  <hr>
+                  <a  [routerLink]="['test', idDom]">Vous voulez passer un TEST de niveau?</a>
                 </blockquote>
               </div>
             </div>
-            <a [routerLink]="['subscribe', idDom]">Vous voulez s'inscrire?</a>
-          </div>
-
-        </div>
-        <div class="col-lg-12 col-md-12">
-          <div class="comment-form-submit">
-            <input name="submit" type="submit"  class="submit cy_button" value="Passer au test"
-                   [routerLink]="['test', idDom]">
           </div>
         </div>
         <app-comment></app-comment>
@@ -40,7 +40,7 @@
         <div class="sidebar cy_sidebar">
           <!--Categories-->
           <div class="widget widget_categories">
-            <h3 class="widget-title">Categories</h3>
+            <h3 class="widget-title">Formations</h3>
             <ul>
               <li><a [routerLink]="['/domain','framework']"> Framework</a></li>
               <li><a [routerLink]="['/domain','programmation']"> Programmation</a></li>
@@ -48,7 +48,7 @@
           </div>
           <!--Sociallinks-->
           <div class="widget widget_social_links">
-            <h3 class="widget-title">follow us</h3>
+            <h3 class="widget-title">SUIVEZ NOUS</h3>
             <ul>
               <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>

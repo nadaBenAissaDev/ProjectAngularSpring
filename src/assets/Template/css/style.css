@@ -1,39 +1,4 @@
-/*
-Copyright (c) 2018 Kamleshyadav
-------------------------------------------------------------------
-[Master Default Stylesheet]
-
-Template Name: Cycling  - Responsive HTML Template
-Version: 1.0.0
-Author: Kamleshyadav
-
--------------------------------------------------------------------
-
-[Table of contents]
-
-
-1.body
-2.header
-3.banner
-4.about
-5.team
-6.gallery
-7.event
-8.prices
-9.blog
-10.footer
-11.our history
-12.event single
-13.blog single
-14.contact
-15.error page
-16.shop page
-17.cart page
-18.checkout page
-19.shop single page
-20.media css
--------------------------------------------------------------------*/
-
+/*nada ben aissa ESPRIT*/
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
@@ -882,7 +847,7 @@ h1.cy_heading {
     -ms-transform: translateY(0);
 }
 .cy_achieve_wrapper {
-    background-image: url(../images/achieve/wrapper.jpg);
+    background-image: url(../images/achieve/achieve.png);
     background-size: cover;
     position: relative;
 }

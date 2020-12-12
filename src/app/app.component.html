@@ -7,7 +7,7 @@
           <div class="col-lg-12 col-md-12">
             <div class="cy_top_detail">
               <ul>
-                <li><a href="#">EMAIL: IT_Tech@gmail.com</a></li>
+                <li><a href="#">EMAIL: IT_Skills@gmail.com</a></li>
                 <li>PHONE: +216 50 831 029</li>
                 <li>
                   <ul>
@@ -26,40 +26,13 @@
   <!-- sign icons -->
   <div class="cy_sign_wrapper">
     <h2 class="signin"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="#signin" data-toggle="modal">Sign In</a></h2>
-    <h2 class="signup"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="#signup" data-toggle="modal">Sign Up</a></h2>
   </div>
   <!-- sign in modal -->
   <app-sign-in></app-sign-in>
-  <!-- sign up modal -->
-  <div class="modal" id="signup">
-    <div class="cy_signup">
-      <div class="row">
-        <div class="col-lg-6 col-md-6">
-          <div class="cy_sign_img">
-            <img src="../assets/Template/images/popup.jpg" alt="popup" class="img-fluid">
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div class="cy_sign_form">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h1>Sign up</h1>
-            <input type="text" placeholder="Username" class="form-control">
-            <input type="text" placeholder="Email or Phone" class="form-control">
-            <input type="password" placeholder="Password" class="form-control">
-            <a href="#" class="cy_button">register</a>
-            <p>Already Have An Account? <a href="#">Sign In</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!--Menus Start-->
   <div class="cy_menu_wrapper">
     <div class="cy_logo_box">
-      <a><img src="../assets/Template/images/logo.png" alt="logo" class="img-fluid"></a>
+      <a><img src="../assets/Template/images/logo/logo2.png" alt="logo" class="img-fluid"></a>
     </div>
     <div class="container">
       <div class="row">
@@ -70,14 +43,14 @@
           <div class="cy_menu">
             <nav>
               <ul>
-                <li><a routerLink="/aboutUs" class="active">about</a></li>
-                <li class="dropdown"><a routerLink="/domain">Domain</a>
+                <li><a routerLink="/aboutUs">A propos</a></li>
+                <li class="dropdown"><a routerLink="/domain">Domaine Formations</a>
                   <ul class="sub-menu">
                     <li><a [routerLink]="['/domain','framework']">Framework</a></li>
                     <li><a [routerLink]="['/domain','programmation']">Programmation</a></li>
                   </ul>
                 </li>
-                <li><a>contact us</a></li>
+                <li><a routerLink="/contact">Contact</a></li>
               </ul>
             </nav>
           </div>
@@ -115,13 +88,13 @@
           <div class="cy_foo_contact">
             <span><img src="../assets/Template/images/svg/email.svg" alt="email"></span>
             <div class="cy_post_info">
-              <p><a href="#">IT_Tech@gmail.com</a></p>
+              <p><a href="#">IT_Skills@gmail.com</a></p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
           <div class="footer-widget">
-            <h1 class="widget-title">Folow US</h1>
+            <h1 class="widget-title">Suivez nous</h1>
             <div class="cy_foo_gallery">
               <ul>
                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -139,10 +112,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12">
-          <P>Copyright &copy; 2020, <a href="#">IT_Tech</a>. All Rights Reserved.</P>
+          <P>Copyright &copy; 2020, <a href="#">IT_SKILLS</a>. All Rights Reserved.</P>
         </div>
       </div>
     </div>
   </div>
-
 </div>

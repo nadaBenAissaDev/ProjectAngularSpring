@@ -22,20 +22,20 @@ export class CommentService {
       );
   }
   getCommentbyDom(idDom): Observable<Comment[]> {
-    return this.http.get<Comment[]>(this.baseUrl + '/ListComment/' + idDom)
+    return this.http.get<Comment[]>(this.baseUrl + '/ListComment/' + idDom, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
     // return this.http.get(`${this.baseUrl}`);
   }
-  deleteComment(idCom){
+  deleteComment(idCom): Observable<Comment>{
     return this.http.delete<Comment>(this.baseUrl + '/deleteComment/' + idCom, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
   }
   updateComment(comment, id): Observable<Comment> {
-    return this.http.put<Comment>(this.baseUrl + '/updateComment/' + id, JSON.stringify(comment), this.httpOptions)
+    return this.http.put<Comment>(this.baseUrl + '/updateComment/' + id, comment)
       .pipe(
         catchError(this.errorHandler)
       );
@@ -43,21 +43,11 @@ export class CommentService {
   errorHandler(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
-      // Get client-side error
       errorMessage = error.error.message;
     } else {
-      // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     console.log(errorMessage);
     return throwError(errorMessage);
   }
-
-  /*createComment(comment, id): Observable<Comment> {
-    return this.http.post<Comment>(this.baseUrl + '/addComment/' + id, JSON.stringify(comment), this.httpOptions)
-      .pipe(
-        catchError(this.errorHandler)
-      );
-  // return this.http.post<Comment>('http://localhost:8081/MyApplication/api/v1/addComment',2 ,"ok");
-  }*/
 }

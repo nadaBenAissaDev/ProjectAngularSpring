@@ -1,9 +1,10 @@
+<!--nada_ben_aissa_ESPRIT-->
 <!--Banner section start-->
 <div class="cy_bread_wrapper">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        <h1>Subscribe</h1>
+        <h1>Insciption <br>formation</h1>
       </div>
     </div>
   </div>
@@ -11,42 +12,43 @@
 <br>
 <div class="container">
   <div class="card">
-    <div class="card-header">Inscription</div>
+    <div class="card-header"><h3>Inscription</h3></div>
     <div class="card-body">
       <form #f="ngForm">
         <div class="form-group" [class.has-danger]="lname.invalid && lname.touched" [class.has-success]="lname.valid">
           <label>Nom</label>
-          <input type="text" name="lastName" class="form-control" placeholder="Nom" [(ngModel)]="subscribe.lastName" #lname="ngModel" pattern="[a-zA-Z]+$"    required>
+          <input type="text" name="lastName" class="form-control" placeholder="Nom" [(ngModel)]="subscribe.lastName" #lname="ngModel" pattern="[a-zA-Z\s]+$" required>
         </div>
         <div *ngIf="lname.invalid && lname.touched">
-          <span *ngIf="lname.errors.required" class="text-danger">required</span>
-          <span *ngIf="lname.errors.pattern" class="text-danger">all characters</span>
+          <span *ngIf="lname.errors.required" class="text-danger">Saisir votre nom</span>
+          <span *ngIf="lname.errors.pattern" class="text-danger">Seulement des lettres</span>
         </div>
 
         <div class="form-group" [class.has-danger]="fname.invalid && fname.touched" [class.has-success]="fname.valid">
           <label>Prenom</label>
-          <input type="text" name="firstName" class="form-control" placeholder="Prenom" [(ngModel)]="subscribe.firstName" #fname="ngModel" pattern="[a-zA-Z]+$"    required>
+          <input type="text" name="firstName" class="form-control" placeholder="Prénom" [(ngModel)]="subscribe.firstName" #fname="ngModel" pattern="[a-zA-Z\s]+$"    required>
         </div>
         <div *ngIf="fname.invalid && fname.touched">
-          <span *ngIf="fname.errors.required" class="text-danger">required</span>
-          <span *ngIf="fname.errors.pattern" class="text-danger">all characters</span>
+          <span *ngIf="fname.errors.required" class="text-danger">Saisir votre prénom</span>
+          <span *ngIf="fname.errors.pattern" class="text-danger">Seulement des lettres</span>
         </div>
 
         <div class="form-group" [class.has-danger]="phone.invalid && phone.touched" [class.has-success]="phone.valid">
-          <label>Phone</label>
-          <input  type="number" name="phone" class="form-control" placeholder="Phone" [(ngModel)]="subscribe.phone" #phone="ngModel" pattern="[0-9]{8}"    required>
+          <label>Numéro de téléphone</label>
+          <input  type="number" name="phone" class="form-control" placeholder="Numéro de téléphone" [(ngModel)]="subscribe.phone" #phone="ngModel" pattern="[0-9]{8}"    required>
         </div>
         <div *ngIf="phone.invalid && phone.touched">
-          <span *ngIf="phone.errors.required" class="text-danger">required</span>
-          <span *ngIf="phone.errors.pattern" class="text-danger">number phone non valid</span>
+          <span *ngIf="phone.errors.required" class="text-danger">Saisir votre numéro de téléphone</span>
+          <span *ngIf="phone.errors.pattern" class="text-danger">Numéro de téléphone non valide</span>
         </div>
 
         <div class="form-group"  [class.has-danger]="email.invalid && email.touched" [class.has-success]="email.valid">
           <label>Email</label>
-          <input type="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="subscribe.email" #email="ngModel" [email]="true" required>
+          <input type="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="subscribe.email" #email="ngModel" pattern="[a-zA-Z]+.[a-zA-Z]+@[a-zA-Z]+.[a-zA-Z]{2,3}" required>
         </div>
         <div *ngIf="email.invalid && email.touched">
-          <span class="text-danger" *ngIf="email.errors.required" >Required</span>
+          <span class="text-danger" *ngIf="email.errors.required" >Saisir votre Email</span>
+          <span class="text-danger" *ngIf="email.errors.pattern" >Email non valide</span>
         </div>
       </form>
     </div>

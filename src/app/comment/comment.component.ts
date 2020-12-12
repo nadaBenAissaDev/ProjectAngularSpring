@@ -18,16 +18,15 @@ export class CommentComponent implements OnInit {
   idDom: number;
   show = true;
   idCom: number;
-  comment: Comment;
   constructor(private serviceComment: CommentService, private activateService: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.idDom = this.activateService.snapshot.params.id;
     this.commentForm = new FormGroup({
-      content: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      content: new FormControl('', [Validators.required, Validators.minLength(4)]),
     });
     this.commentupdateForm = new FormGroup({
-      contentupdate: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      content: new FormControl('', [Validators.required, Validators.minLength(4)]),
     });
     this.serviceComment.getCommentbyDom(this.idDom).subscribe(
       (data: Comment[]) => {
@@ -41,7 +40,7 @@ export class CommentComponent implements OnInit {
     return this.commentForm.get('content');
   }
   get contentupdate() {
-    return this.commentupdateForm.get('contentupdate');
+    return this.commentupdateForm.get('content');
   }
 
   createComment() {
@@ -66,8 +65,12 @@ export class CommentComponent implements OnInit {
     this.show = false;
     this.idCom = comment.id;
   }
-  saveUpdate(idCom){
+  saveUpdate(idCom) {
     this.serviceComment.updateComment(this.commentupdateForm.value, idCom).subscribe(
+      com => {
+        this.serviceComment.getCommentbyDom(this.idDom).subscribe((data: Comment[]) => this.listComment = data);
+        console.log('Comment updated!');
+      }
     );
   }
 }

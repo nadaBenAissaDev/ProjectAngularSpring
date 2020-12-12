@@ -2,7 +2,6 @@ import {Component, Injectable, OnInit} from '@angular/core';
 import {DomainService} from '../shared/domain.service';
 import {Domain} from '../model/Domain';
 import {ActivatedRoute} from '@angular/router';
-import {Comment} from '../model/Comment';
 
 @Component({
   selector: 'app-domain',
@@ -43,5 +42,13 @@ export class DomainComponent implements OnInit {
         console.log('like is updated!');
       }
     );
+  }
+  recherche(s){
+  this.domainService.searchMultiCri(s).subscribe(
+    (data: Domain[]) => {
+      this.listDomain = data;
+      console.log('search multicritère' + this.listDomain);
+    }
+  );
   }
 }

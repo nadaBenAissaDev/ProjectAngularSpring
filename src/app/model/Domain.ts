@@ -5,4 +5,7 @@ export interface Domain {
   like: number;
   type: string;
   image: string;
+  dateEnd: Date;
+  dateStart: Date;
+  price: number;
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import {Subscribe} from '../model/Subscribe';
-import {DomainService} from '../shared/domain.service';
 import {ActivatedRoute} from '@angular/router';
 import {SubscribeService} from '../shared/subscribe.service';
 
@@ -12,7 +11,6 @@ import {SubscribeService} from '../shared/subscribe.service';
 })
 export class SubscribeComponent implements OnInit {
 subscribe: Subscribe;
-listSubscribe: Subscribe[];
 idDom: number;
   constructor(private toastr: ToastrService, private subscribeService: SubscribeService, private activateService: ActivatedRoute) { }
   ngOnInit(): void {
@@ -25,7 +23,7 @@ idDom: number;
         console.log('subscribe created!');
       }
     );
-    this.toastr.success('Hello!', 'you are registered !');
+    this.toastr.success('Bonjour!', 'Vous êtes inscrit à cette formation !');
   }
 
 }

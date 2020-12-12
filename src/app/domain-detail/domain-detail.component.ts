@@ -5,9 +5,6 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Domain} from '../model/Domain';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
-import {SousDomainComponent} from '../sous-domain/sous-domain.component';
-import {DomainComponent} from '../domain/domain.component';
-import {ListDomainService} from '../shared/listDomain.service';
 import {DomainService} from '../shared/domain.service';
 
 @Component({
@@ -18,7 +15,6 @@ import {DomainService} from '../shared/domain.service';
 export class DomainDetailComponent implements OnInit {
   listDomain: Observable<Domain[]>;
   idDom: number;
-  show = true;
   constructor(private http: ActivatedRoute, private domainService: DomainService) {
   }
 
