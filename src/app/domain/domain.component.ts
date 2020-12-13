@@ -18,12 +18,7 @@ export class DomainComponent implements OnInit {
   ngOnInit() {
     this.parameter = this.activateService.snapshot.params.id;
     if (this.parameter == null ){
-    this.domainService.getAllDomain().subscribe(
-        (data: Domain[]) => {
-          this.listDomain = data;
-          console.log('All domain' + this.listDomain);
-        }
-      );
+     this.listAllDom();
     }
     if (this.parameter != null){
       this.domainService.getAllDomainbyType(this.parameter).subscribe(
@@ -33,6 +28,14 @@ export class DomainComponent implements OnInit {
         }
       );
     }
+  }
+  listAllDom(){
+    this.domainService.getAllDomain().subscribe(
+      (data: Domain[]) => {
+        this.listDomain = data;
+        console.log('All domain' + this.listDomain);
+      }
+    );
   }
   like(idDom) {
     this.listDomain[idDom].like++;

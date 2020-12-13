@@ -16,7 +16,7 @@
     </div>
     <div class="card-body">
         <form #f="ngForm">
-          <span>Time Elapsed : <countdown #cd [config]="{leftTime :30}"></countdown></span>
+          <span><countdown #cd [config]="{leftTime :30}"></countdown></span>
           <div class="progress">
               <div [ngStyle]="{'width.%': widthbar, 'background-color':'orange'}"></div>
           </div>
@@ -33,7 +33,7 @@
            </div>
          </div>
            <div class="alert alert-success" *ngIf="show">
-             {{l.answer}}
+            <div [ngStyle]="{'background-color': color}">{{l.answer}}</div>
            </div>
        </div>
      </form>

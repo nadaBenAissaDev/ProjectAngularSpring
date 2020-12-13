@@ -17,7 +17,6 @@
           <div *ngIf="dom.id == idDom">
             <div class="cy_blog_data">
               <h1>{{dom.title}}</h1>
-              <h2>{{dom.type}}</h2>
               <div class="cy_blockquotes">
                 <blockquote cite="">
                 {{dom.description}}
@@ -25,9 +24,9 @@
                   <div><strong>Durée de:&nbsp; {{dom.dateStart}}&nbsp; à &nbsp;{{dom.dateEnd}}</strong></div>
                   <div><strong>Prix:&nbsp;{{dom.price}} dt </strong></div>
                   <hr>
-                  <a [routerLink]="['subscribe', idDom]">Vous voulez s'inscrire?</a>
+                  <a [routerLink]="['subscribe', idDom]"><strong>Vous voulez s'inscrire?</strong></a>
                   <hr>
-                  <a  [routerLink]="['test', idDom]">Vous voulez passer un TEST de niveau?</a>
+                  <a  [routerLink]="['test', idDom]"><strong>Vous voulez passer un TEST de niveau?</strong></a>
                 </blockquote>
               </div>
             </div>
@@ -43,7 +42,7 @@
             <h3 class="widget-title">Formations</h3>
             <ul>
               <li><a [routerLink]="['/domain','framework']"> Framework</a></li>
-              <li><a [routerLink]="['/domain','programmation']"> Programmation</a></li>
+              <li><a [routerLink]="['/domain','programmation']">Langage de programmation</a></li>
             </ul>
           </div>
           <!--Sociallinks-->

@@ -847,7 +847,7 @@ h1.cy_heading {
     -ms-transform: translateY(0);
 }
 .cy_achieve_wrapper {
-    background-image: url(../images/achieve/achieve.png);
+    background-image: url('../images/about.jpg');
     background-size: cover;
     position: relative;
 }

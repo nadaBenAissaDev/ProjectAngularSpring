@@ -23,7 +23,7 @@ idDom: number;
         console.log('subscribe created!');
       }
     );
-    this.toastr.success('Bonjour!', 'Vous êtes inscrit à cette formation !');
+    this.toastr.success('Vous êtes inscrit à cette formation !', 'Bonjour!');
   }
 
 }

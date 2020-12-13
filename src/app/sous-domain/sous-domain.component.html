@@ -1,7 +1,7 @@
 <!--nada_ben_aissa_ESPRIT-->
 <div class="cy_event_box">
   <div class="cy_event_img">
-    <img src="../../assets/Template/images/programmation/{{domainfils.image}}" alt="domain" class="img-fluid" />
+    <img src="../../assets/Template/images/Domain/{{domainfils.image}}" alt="domain" class="img-fluid"  [routerLink]="['detail',domainfils.id]"/>
     <div class="cy_event_detail">
       <div class="cy_event_time">
         <ul>
@@ -12,10 +12,6 @@
         <span class="ev_date">{{domainfils.dateStart}}</span>
       </div>
     </div>
-  </div>
-  <div class="cy_event_data">
-    <h2><a [routerLink]="['detail',domainfils.id]">{{domainfils.title}}</a></h2>
-    <a [routerLink]="['test',domainfils.id]" class="cy_button">Test</a>
   </div>
 </div>
 

@@ -24,12 +24,6 @@ export class TestService {
         catchError(this.errorHandler)
       );
   }
-  getquestionTest(idDom) {
-    return this.http.get(this.baseUrl + '/nbrtestByDom/' + idDom, this.httpOptions)
-      .pipe(
-        catchError(this.errorHandler)
-      );
-  }
   errorHandler(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

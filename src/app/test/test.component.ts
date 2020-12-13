@@ -19,7 +19,7 @@ export class TestComponent implements OnInit {
   widthbar: number;
   valid: boolean;
   i: number;
-  nbrQuestion: Observable<any>;
+  color: string;
 
   constructor(private activateService: ActivatedRoute, private testService: TestService, private toastr: ToastrService) {
   }
@@ -27,19 +27,21 @@ export class TestComponent implements OnInit {
     this.valeur = 0;
     this.idDom = this.activateService.snapshot.params.id;
     this.listTest = this.testService.getTestbyDom(this.idDom);
-    this.nbrQuestion = this.testService.getquestionTest(this.idDom);
     this.widthbar = 0;
   }
 
   valider() {
     this.show = true;
-    this.toastr.success('', 'Vous avez obtenir:' + this.valeur + 'réponses valides' );
+    this.toastr.success('', 'Vous avez obtenu:' + this.valeur + 'réponses valides' );
   }
 
   propositionChecked(i: number, answer: string, checked: string) {
     if (answer === checked) {
       this.valeur = this.valeur + 1;
       this.widthbar = this.widthbar + 20;
+    }
+    if (this.valeur === i){
+      this.color = 'red';
     }
 
   }
